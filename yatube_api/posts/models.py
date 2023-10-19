@@ -1,4 +1,3 @@
-"""This file contains models for YaTube API project."""
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -62,7 +61,7 @@ class Post(models.Model):
         default_related_name = 'posts'
         verbose_name = 'пост'
         verbose_name_plural = 'Посты'
-        ordering = ['pub_date']
+        ordering = ('pub_date',)
 
     def __str__(self):
         """Magic method for Post model."""
@@ -142,4 +141,4 @@ class Follow(models.Model):
 
     def __str__(self):
         """Magic method for Follow model."""
-        return (f'Пользователь {self.user} подписан на {self.following}')
+        return f'Пользователь {self.user} подписан на {self.following}'
